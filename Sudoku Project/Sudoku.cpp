@@ -2,9 +2,8 @@
  *###################################################
  *IFMG- BAMBUI
  *Nome: Daniel Reis Goncalves Sant'ana
- *Data: 24/08/2022
  *Turma: ENGC-2022
- *Titulo: Trabalho Final AED1 - Sudoku
+ *Titulo: Sudoku Project
  *###################################################
 */
 #include <iostream>
@@ -15,21 +14,13 @@
 
 
 #define N 9
-#define facil 25 //Numero de espaï¿½os vazios // pode ser alterado ate 81(quadro de sudoku em branco)
+#define facil 25 
 #define medio 50
 #define impossiel 60
-
-using namespace std;
-
-//VARIAVEIS GLOBAIS:
 
 int gabarito[N][N],jogofeito[N][N],vet1[N],vet2[N],vet3[N],cont;
 
 unsigned seed = time(0);
-
-
-//FUNï¿½OES:
-
 
 //Menu
 int menu()
@@ -67,11 +58,11 @@ dificuldade:
             goto inicio;
             break;
         case '5':
-            std::cout << "Vocï¿½ pediu para sair, precione qualquer tecla para continuar" << std::endl;
+            std::cout << "Você pediu para sair, precione qualquer tecla para continuar" << std::endl;
             system("pause");
             exit(0);
         default:
-            std::cout << "voce deve escolher uma opcao valida\n";
+            std::cout << "Você deve escolher uma opcao valida\n";
             std::cout << "Precione qualquer tecla para voltar ao menu\n\n";
             system("pause");
             goto dificuldade;
@@ -81,15 +72,15 @@ dificuldade:
 regras:
         system("cls");
         std::cout << "REGRAS: " << std::endl;
-        std::cout << std::endl << "O objetivo do jogo ï¿½ completar todos os quadrados utilizando nï¿½meros de 1 a 9. " << std::endl;
-        std::cout << std::endl << "Para completï¿½-los basta seguir as seguintes regras:" << std::endl;
-        std::cout << std::endl << "Nï¿½o podem haver nï¿½meros repetidos nas linhas horizontais" << std::endl;
-        std::cout << "Nï¿½o podem haver nï¿½meros repetidos nas linhas verticais" << std::endl;
-        std::cout << "Nï¿½o podem haver nï¿½meros repetidos nos quadrados delimitados" << std::endl;
-        std::cout << "O numero 0 equivale a um espaï¿½o vazio, voce devera preenchelos" << std::endl;
-        std::cout << "Escreva a coordenada do espaï¿½o vazio e digite o numero desejado" << std::endl;
-        std::cout << "ATENï¿½ï¿½O: NENHUM NUMERO PODERA SER TROCADO, COM GRANDES PODERES VEM GRANDES RESPONSABILIDADES" << std::endl;
-        std::cout << "SUDOKU ï¿½ um jogo de raciocï¿½nio e lï¿½gica." << std::endl;
+        std::cout << std::endl << "O objetivo do jogo é completar todos os quadrados utilizando numeros de 1 a 9. " << std::endl;
+        std::cout << std::endl << "Para completa-los basta seguir as seguintes regras:" << std::endl;
+        std::cout << std::endl << "Não podem haver numeros repetidos nas linhas horizontais" << std::endl;
+        std::cout << "Não podem haver numeros repetidos nas linhas verticais" << std::endl;
+        std::cout << "Não podem haver numeros repetidos nos quadrados delimitados" << std::endl;
+        std::cout << "O numero 0 equivale a um espaço vazio, Você devera preenchelos" << std::endl;
+        std::cout << "Escreva a coordenada do espaço vazio e digite o numero desejado" << std::endl;
+        std::cout << "ATENÇÃO: NENHUM NUMERO PODERA SER TROCADO, COM GRANDES PODERES VEM GRANDES RESPONSABILIDADES" << std::endl;
+        std::cout << "SUDOKU é um jogo de raciocinio e logica." << std::endl;
         std::cout << std::endl << "1 - RETORNAR AO MENU INICIAL \n2 - SAIR\n" << std::endl;
         opcao = getch();
         switch(opcao)
@@ -100,11 +91,11 @@ regras:
             break;
         case '2':
             system("cls");
-            std::cout << "voce pediu para sair, prencione qualquer tecla para continuar\n";
+            std::cout << "Você pediu para sair, prencione qualquer tecla para continuar\n";
             system("pause");
             exit(0);
         default:
-            std::cout << "voce deve escolher uma opcao valida\n";
+            std::cout << "Você deve escolher uma opcao valida\n";
             std::cout << "Precione qualquer tecla para voltar ao menu\n\n";
             system("pause");
             goto regras;
@@ -119,9 +110,8 @@ creditos:
         std::cout << std::endl << "###################################################" << std::endl;
         std::cout << "IFMG- BAMBUI" << std::endl;
         std::cout << "Nome: Daniel Reis Goncalves Sant'ana" << std::endl;
-        std::cout << "Data: 24/08/2022" << std::endl;
         std::cout << "Turma: ENGC-2022" << std::endl;
-        std::cout << "Titulo: Trabalho Final AED1 - Sudoku" << std::endl;
+        std::cout << "Titulo: Sudoku Project" << std::endl;
         std::cout << "###################################################" << std::endl;
         std::cout << std::endl << "1 - RETORNAR AO MENU INICIAL \n2 - SAIR\n" << std::endl;
         opcao = getch();
@@ -133,11 +123,11 @@ creditos:
             break;
         case '2':
             system("cls");
-            std::cout << "voce pediu para sair, prencione qualquer tecla para continuar\n";
+            std::cout << "Você pediu para sair, prencione qualquer tecla para continuar\n";
             system("pause");
             exit(0);
         default:
-            std::cout << "voce deve escolher uma opcao valida\n";
+            std::cout << "Você deve escolher uma opcao valida\n";
             std::cout << "Precione qualquer tecla para voltar ao menu\n\n";
             system("pause");
             goto creditos;
@@ -146,11 +136,11 @@ creditos:
         break;
     case '4':
         system("cls");
-        std::cout << "voce pediu para sair, prencione qualquer tecla para continuar\n";
+        std::cout << "Você pediu para sair, prencione qualquer tecla para continuar\n";
         system("pause");
         exit(0);
     default:
-        std::cout << "voce deve escolher uma opcao valida\n";
+        std::cout << "Você deve escolher uma opcao valida\n";
         std::cout << "Precione qualquer tecla para voltar ao menu\n\n";
         system("pause");
         goto inicio;
@@ -330,7 +320,7 @@ bool lugarvazio(int &lin, int &col)
 }
 
 
-//"lugarvalido" verifica se ï¿½ um espaï¿½oo valido para o numero
+//"lugarvalido" verifica se ï¿½ um espaçoo valido para o numero
 bool lugarvalido(int lin, int col, int num)
 {
     //Quando o numero nao ï¿½ encontrado na coluna na linha e na grade
@@ -344,7 +334,7 @@ bool geradordesudoku()
 {
     int lin, col;
     if (!lugarvazio(lin, col))
-        return true; //Quando todos os espaï¿½oes estao preenchidos
+        return true; //Quando todos os espaçoes estao preenchidos
     for (int num = 1; num <= 9; num++)  //Numeros validos sï¿½o de 1 a 9
     {
         if (lugarvalido(lin, col, num))  //Se valido coloca um numero
@@ -352,7 +342,7 @@ bool geradordesudoku()
             gabarito[lin][col] = num;
             if (geradordesudoku()) //Recursivo troca de posiï¿½ao
                 return true;
-            gabarito[lin][col] = 0; //Coloca 0 quando nao ï¿½ um espaï¿½o valido
+            gabarito[lin][col] = 0; //Coloca 0 quando nao ï¿½ um espaço valido
         }
     }
     return false;
@@ -605,7 +595,7 @@ mainvolta:
     else
     {
         system("cls");
-        std::cout << "Nï¿½o foi desta vez, voce perdeu" << std::endl;
+        std::cout << "Não foi desta vez, Você perdeu" << std::endl;
         std::cout << "Aperte qualquer tecla para continuar.\n";
         system("pause");
         resetgabarito();
