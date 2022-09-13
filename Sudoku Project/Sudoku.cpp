@@ -457,21 +457,21 @@ jogando:
         std::cin >> x;
         while(x<1 || x>9)
         {
-            cout << "Digite uma coordenada X valida de 1 a 9: ";
+            std::cout << "Digite uma coordenada X valida de 1 a 9: ";
             std::cin >> x;
         }
         std::cout << "Digite a coordenada Y: ";
         std::cin >> y;
         while(y<1 || y>9)
         {
-            cout << "Digite uma coordenada Y valida de 1 a 9: ";
+            std::cout << "Digite uma coordenada Y valida de 1 a 9: ";
             std::cin >> y;
         }
         std::cout << "Digite o numero desejado: ";
         std::cin >> num;
         while(num<1 || num>9)
         {
-            cout << "Digite um numero valido de 1 a 9: ";
+            std::cout << "Digite um numero valido de 1 a 9: ";
             std::cin >> num;
         }
         if(jogofeito[y-1][x-1]== 0)
